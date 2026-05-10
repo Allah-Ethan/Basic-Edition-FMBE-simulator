@@ -211,53 +211,53 @@ function generateStairsVertices() {
   const c2 = [0.85, 0.75, 0.65];
   const c3 = [0.65, 0.55, 0.45];
   
-  const pushVert = (x, y, z, color) => {
-    v.push(x, y, z, color[0], color[1], color[2], 0, 0, 0, 0, 0);
+  const pushVert = (x, y, z, color, nx=0, ny=0, nz=0) => {
+    v.push(x, y, z, color[0], color[1], color[2], 0, 0, nx, ny, nz);
   };
   
   // 底面
-  pushVert(-.5, -.5, -.5, c3); pushVert(.5, -.5, -.5, c3); pushVert(.5, -.5, .5, c3);
-  pushVert(-.5, -.5, -.5, c3); pushVert(.5, -.5, .5, c3); pushVert(-.5, -.5, .5, c3);
+  pushVert(-.5, -.5, -.5, c3, 0, -1, 0); pushVert(.5, -.5, -.5, c3, 0, -1, 0); pushVert(.5, -.5, .5, c3, 0, -1, 0);
+  pushVert(-.5, -.5, -.5, c3, 0, -1, 0); pushVert(.5, -.5, .5, c3, 0, -1, 0); pushVert(-.5, -.5, .5, c3, 0, -1, 0);
   
   // 前面
-  pushVert(-.5, -.5, .5, c1); pushVert(.5, -.5, .5, c1); pushVert(.5, 0, .5, c1);
-  pushVert(-.5, -.5, .5, c1); pushVert(.5, 0, .5, c1); pushVert(-.5, 0, .5, c1);
+  pushVert(-.5, -.5, .5, c1, 0, 0, 1); pushVert(.5, -.5, .5, c1, 0, 0, 1); pushVert(.5, 0, .5, c1, 0, 0, 1);
+  pushVert(-.5, -.5, .5, c1, 0, 0, 1); pushVert(.5, 0, .5, c1, 0, 0, 1); pushVert(-.5, 0, .5, c1, 0, 0, 1);
   
   // 左面下半
-  pushVert(-.5, -.5, -.5, c1); pushVert(-.5, 0, -.5, c1); pushVert(-.5, -.5, .5, c1);
-  pushVert(-.5, -.5, .5, c1); pushVert(-.5, 0, -.5, c1); pushVert(-.5, 0, .5, c1);
+  pushVert(-.5, -.5, -.5, c1, -1, 0, 0); pushVert(-.5, 0, -.5, c1, -1, 0, 0); pushVert(-.5, -.5, .5, c1, -1, 0, 0);
+  pushVert(-.5, -.5, .5, c1, -1, 0, 0); pushVert(-.5, 0, -.5, c1, -1, 0, 0); pushVert(-.5, 0, .5, c1, -1, 0, 0);
   
   // 左面右上（楼梯台阶垂直面）
-  pushVert(-.5, 0, 0, c1); pushVert(-.5, .5, 0, c1); pushVert(-.5, 0, .5, c1);
-  pushVert(-.5, 0, .5, c1); pushVert(-.5, .5, 0, c1); pushVert(-.5, .5, .5, c1);
+  pushVert(-.5, 0, .5, c1, -1, 0, 0); pushVert(-.5, .5, .5, c1, -1, 0, 0); pushVert(-.5, 0, .5, c1, -1, 0, 0);
+  pushVert(-.5, 0, 0, c1, -1, 0, 0); pushVert(-.5, .5, 0, c1, -1, 0, 0); pushVert(-.5, .5, 0, c1, -1, 0, 0);
   
   // 左面左上（楼梯顶部）
-  pushVert(-.5, 0, -.5, c1); pushVert(-.5, .5, -.5, c1); pushVert(-.5, 0, 0, c1);
-  pushVert(-.5, 0, 0, c1); pushVert(-.5, .5, -.5, c1); pushVert(-.5, .5, 0, c1);
+  pushVert(-.5, 0, -.5, c1, -1, 0, 0); pushVert(-.5, .5, -.5, c1, -1, 0, 0); pushVert(-.5, 0, 0, c1, -1, 0, 0);
+  pushVert(-.5, 0, 0, c1, -1, 0, 0); pushVert(-.5, .5, -.5, c1, -1, 0, 0); pushVert(-.5, .5, 0, c1, -1, 0, 0);
   
   // 右面下半
-  pushVert(.5, -.5, -.5, c3); pushVert(.5, 0, -.5, c3); pushVert(.5, -.5, .5, c3);
-  pushVert(.5, -.5, .5, c3); pushVert(.5, 0, -.5, c3); pushVert(.5, 0, .5, c3);
+  pushVert(.5, -.5, -.5, c3, 1, 0, 0); pushVert(.5, 0, -.5, c3, 1, 0, 0); pushVert(.5, -.5, .5, c3, 1, 0, 0);
+  pushVert(.5, -.5, .5, c3, 1, 0, 0); pushVert(.5, 0, -.5, c3, 1, 0, 0); pushVert(.5, 0, .5, c3, 1, 0, 0);
   
   // 右面后半（从楼梯顶部到后方）
-  pushVert(.5, 0, -.5, c3); pushVert(.5, .5, -.5, c3); pushVert(.5, 0, 0, c3);
-  pushVert(.5, 0, 0, c3); pushVert(.5, .5, -.5, c3); pushVert(.5, .5, 0, c3);
+  pushVert(.5, 0, -.5, c3, 1, 0, 0); pushVert(.5, .5, -.5, c3, 1, 0, 0); pushVert(.5, 0, 0, c3, 1, 0, 0);
+  pushVert(.5, 0, 0, c3, 1, 0, 0); pushVert(.5, .5, -.5, c3, 1, 0, 0); pushVert(.5, .5, 0, c3, 1, 0, 0);
   
   // 顶面（楼梯台阶水平面）
-  pushVert(-.5, 0, -.5, c2); pushVert(.5, 0, -.5, c2); pushVert(.5, 0, .5, c2);
-  pushVert(-.5, 0, -.5, c2); pushVert(.5, 0, .5, c2); pushVert(-.5, 0, .5, c2);
+  pushVert(-.5, 0, -.5, c2, 0, 1, 0); pushVert(.5, 0, -.5, c2, 0, 1, 0); pushVert(.5, 0, .5, c2, 0, 1, 0);
+  pushVert(-.5, 0, -.5, c2, 0, 1, 0); pushVert(.5, 0, .5, c2, 0, 1, 0); pushVert(-.5, 0, .5, c2, 0, 1, 0);
   
   // 楼梯顶部水平面
-  pushVert(-.5, .5, -.5, c2); pushVert(.5, .5, -.5, c2); pushVert(.5, .5, 0, c2);
-  pushVert(-.5, .5, -.5, c2); pushVert(.5, .5, 0, c2); pushVert(-.5, .5, 0, c2);
+  pushVert(-.5, .5, -.5, c2, 0, 1, 0); pushVert(.5, .5, -.5, c2, 0, 1, 0); pushVert(.5, .5, 0, c2, 0, 1, 0);
+  pushVert(-.5, .5, -.5, c2, 0, 1, 0); pushVert(.5, .5, 0, c2, 0, 1, 0); pushVert(-.5, .5, 0, c2, 0, 1, 0);
   
   // 后面上半
-  pushVert(-.5, 0, -.5, c2); pushVert(.5, 0, -.5, c2); pushVert(.5, .5, -.5, c2);
-  pushVert(-.5, 0, -.5, c2); pushVert(.5, .5, -.5, c2); pushVert(-.5, .5, -.5, c2);
+  pushVert(-.5, 0, -.5, c2, 0, 0, -1); pushVert(.5, 0, -.5, c2, 0, 0, -1); pushVert(.5, .5, -.5, c2, 0, 0, -1);
+  pushVert(-.5, 0, -.5, c2, 0, 0, -1); pushVert(.5, .5, -.5, c2, 0, 0, -1); pushVert(-.5, .5, -.5, c2, 0, 0, -1);
   
   // 楼梯台阶垂直面（朝上的面）
-  pushVert(-.5, 0, 0, c1); pushVert(.5, 0, 0, c1); pushVert(.5, .5, 0, c1);
-  pushVert(-.5, 0, 0, c1); pushVert(.5, .5, 0, c1); pushVert(-.5, .5, 0, c1);
+  pushVert(-.5, 0, 0, c1, 0, 0, -1); pushVert(.5, 0, 0, c1, 0, 0, -1); pushVert(.5, .5, 0, c1, 0, 0, -1);
+  pushVert(-.5, 0, 0, c1, 0, 0, -1); pushVert(.5, .5, 0, c1, 0, 0, -1); pushVert(-.5, .5, 0, c1, 0, 0, -1);
   
   return new Float32Array(v);
 }
@@ -267,35 +267,35 @@ function generateSlabVertices() {
   const v = [];
   const color = [0.7, 0.6, 0.5]; // 纯色渲染
   
-  const pushVert = (x, y, z) => {
-    v.push(x, y, z, color[0], color[1], color[2], 0, 0, 0, 0, 0);
+  const pushVert = (x, y, z, nx=0, ny=0, nz=0) => {
+    v.push(x, y, z, color[0], color[1], color[2], 0, 0, nx, ny, nz);
   };
   
   // 半砖的高度是0.5，所以y范围是-0.5到0
   
   // 底部
-  pushVert(-0.5, -0.5, -0.5); pushVert(0.5, -0.5, -0.5); pushVert(0.5, -0.5, 0.5);
-  pushVert(-0.5, -0.5, -0.5); pushVert(0.5, -0.5, 0.5); pushVert(-0.5, -0.5, 0.5);
+  pushVert(-0.5, -0.5, -0.5, 0, -1, 0); pushVert(0.5, -0.5, -0.5, 0, -1, 0); pushVert(0.5, -0.5, 0.5, 0, -1, 0);
+  pushVert(-0.5, -0.5, -0.5, 0, -1, 0); pushVert(0.5, -0.5, 0.5, 0, -1, 0); pushVert(-0.5, -0.5, 0.5, 0, -1, 0);
   
   // 顶部
-  pushVert(-0.5, 0, -0.5); pushVert(0.5, 0, -0.5); pushVert(0.5, 0, 0.5);
-  pushVert(-0.5, 0, -0.5); pushVert(0.5, 0, 0.5); pushVert(-0.5, 0, 0.5);
+  pushVert(-0.5, 0, -0.5, 0, 1, 0); pushVert(0.5, 0, -0.5, 0, 1, 0); pushVert(0.5, 0, 0.5, 0, 1, 0);
+  pushVert(-0.5, 0, -0.5, 0, 1, 0); pushVert(0.5, 0, 0.5, 0, 1, 0); pushVert(-0.5, 0, 0.5, 0, 1, 0);
   
   // 前面
-  pushVert(-0.5, -0.5, -0.5); pushVert(0.5, -0.5, -0.5); pushVert(0.5, 0, -0.5);
-  pushVert(-0.5, -0.5, -0.5); pushVert(0.5, 0, -0.5); pushVert(-0.5, 0, -0.5);
+  pushVert(-0.5, -0.5, -0.5, 0, 0, -1); pushVert(0.5, -0.5, -0.5, 0, 0, -1); pushVert(0.5, 0, -0.5, 0, 0, -1);
+  pushVert(-0.5, -0.5, -0.5, 0, 0, -1); pushVert(0.5, 0, -0.5, 0, 0, -1); pushVert(-0.5, 0, -0.5, 0, 0, -1);
   
   // 后面
-  pushVert(-0.5, -0.5, 0.5); pushVert(0.5, -0.5, 0.5); pushVert(0.5, 0, 0.5);
-  pushVert(-0.5, -0.5, 0.5); pushVert(0.5, 0, 0.5); pushVert(-0.5, 0, 0.5);
+  pushVert(-0.5, -0.5, 0.5, 0, 0, 1); pushVert(0.5, -0.5, 0.5, 0, 0, 1); pushVert(0.5, 0, 0.5, 0, 0, 1);
+  pushVert(-0.5, -0.5, 0.5, 0, 0, 1); pushVert(0.5, 0, 0.5, 0, 0, 1); pushVert(-0.5, 0, 0.5, 0, 0, 1);
   
   // 左面
-  pushVert(-0.5, -0.5, -0.5); pushVert(-0.5, -0.5, 0.5); pushVert(-0.5, 0, 0.5);
-  pushVert(-0.5, -0.5, -0.5); pushVert(-0.5, 0, 0.5); pushVert(-0.5, 0, -0.5);
+  pushVert(-0.5, -0.5, -0.5, -1, 0, 0); pushVert(-0.5, -0.5, 0.5, -1, 0, 0); pushVert(-0.5, 0, 0.5, -1, 0, 0);
+  pushVert(-0.5, -0.5, -0.5, -1, 0, 0); pushVert(-0.5, 0, 0.5, -1, 0, 0); pushVert(-0.5, 0, -0.5, -1, 0, 0);
   
   // 右面
-  pushVert(0.5, -0.5, -0.5); pushVert(0.5, -0.5, 0.5); pushVert(0.5, 0, 0.5);
-  pushVert(0.5, -0.5, -0.5); pushVert(0.5, 0, 0.5); pushVert(0.5, 0, -0.5);
+  pushVert(0.5, -0.5, -0.5, 1, 0, 0); pushVert(0.5, -0.5, 0.5, 1, 0, 0); pushVert(0.5, 0, 0.5, 1, 0, 0);
+  pushVert(0.5, -0.5, -0.5, 1, 0, 0); pushVert(0.5, 0, 0.5, 1, 0, 0); pushVert(0.5, 0, -0.5, 1, 0, 0);
   
   return new Float32Array(v);
 }
@@ -357,23 +357,25 @@ function generateBannerVertices() {
   pushCubeFace(c2[0], c2[1], c2[5], c2[4], brown, [0, 0, 1]); // 右面
   pushCubeFace(c2[2], c2[6], c2[7], c2[3], brown, [0, 0, -1]); // 左面
   
-  // cube3 (白色，用于材质)
-  const c3 = [
-    [-0.321428, 0.208661415, 0.34293],
-    [-0.321428, 0.258622865, 0.344893],
-    [-0.321428, 0.3371425, -1.653565],
-    [-0.321428, 0.287181, -1.6555275],
-    [0.678575, 0.208661415, 0.34293],
-    [0.678575, 0.258622865, 0.344893],
-    [0.678575, 0.3371425, -1.653565],
-    [0.678575, 0.287181, -1.6555275]
-  ];
-  pushCubeFace(c3[4], c3[5], c3[1], c3[0], white, [0, 1, 0]); // 顶部
-  pushCubeFace(c3[0], c3[1], c3[3], c3[2], white, [0, -1, 0]); // 底部
-  pushCubeFace(c3[0], c3[4], c3[6], c3[2], white, [1, 0, 0]); // 前面
-  pushCubeFace(c3[1], c3[3], c3[7], c3[5], white, [-1, 0, 0]); // 后面
-  pushCubeFace(c3[0], c3[1], c3[5], c3[4], white, [0, 0, 1]); // 右面
-  pushCubeFace(c3[2], c3[6], c3[7], c3[3], white, [0, 0, -1]); // 左面
+const c3 = [
+     [-0.321428, 0.108661415, 0.34293],
+     [-0.321428, 0.158622865, 0.344893],
+     [-0.321428, 0.187181, -1.6555275],
+     [-0.321428, 0.2371425, -1.653565],
+     [0.678575, 0.108661415, 0.34293],
+     [0.678575, 0.158622865, 0.344893],
+     [0.678575, 0.187181, -1.6555275],
+     [0.678575, 0.2371425, -1.653565]
+ ];
+ // 顶面 Y+（四点共面，无扭曲）
+ pushCubeFace(c3[0], c3[1], c3[5], c3[4], white, [0, 1, 0]);
+ // 底面 Y-（四点共面，无扭曲）
+ pushCubeFace(c3[2], c3[3], c3[7], c3[6], white, [0, -1, 0]);
+ // 四个侧面 完整闭环封口
+ pushCubeFace(c3[0], c3[2], c3[3], c3[1], white, [-1, 0, 0]); // 左侧
+ pushCubeFace(c3[4], c3[5], c3[7], c3[6], white, [1, 0, 0]);  // 右侧
+ pushCubeFace(c3[0], c3[4], c3[6], c3[2], white, [0, 0, 1]);  // 前侧
+ pushCubeFace(c3[1], c3[3], c3[7], c3[5], white, [0, 0, -1]); // 后侧
   
   return new Float32Array(v);
 }
@@ -434,29 +436,34 @@ function generateBannerWireframe() {
   pushLine(c2[2][0], c2[2][1], c2[2][2], c2[6][0], c2[6][1], c2[6][2]);
   pushLine(c2[3][0], c2[3][1], c2[3][2], c2[7][0], c2[7][1], c2[7][2]);
   
-  // cube3
-  const c3 = [
-    [-0.321428, 0.208661415, 0.34293],
-    [-0.321428, 0.258622865, 0.344893],
-    [-0.321428, 0.3371425, -1.653565],
-    [-0.321428, 0.287181, -1.6555275],
-    [0.678575, 0.208661415, 0.34293],
-    [0.678575, 0.258622865, 0.344893],
-    [0.678575, 0.3371425, -1.653565],
-    [0.678575, 0.287181, -1.6555275]
-  ];
-  pushLine(c3[0][0], c3[0][1], c3[0][2], c3[1][0], c3[1][1], c3[1][2]);
-  pushLine(c3[1][0], c3[1][1], c3[1][2], c3[3][0], c3[3][1], c3[3][2]);
-  pushLine(c3[3][0], c3[3][1], c3[3][2], c3[2][0], c3[2][1], c3[2][2]);
-  pushLine(c3[2][0], c3[2][1], c3[2][2], c3[0][0], c3[0][1], c3[0][2]);
-  pushLine(c3[4][0], c3[4][1], c3[4][2], c3[5][0], c3[5][1], c3[5][2]);
-  pushLine(c3[5][0], c3[5][1], c3[5][2], c3[7][0], c3[7][1], c3[7][2]);
-  pushLine(c3[7][0], c3[7][1], c3[7][2], c3[6][0], c3[6][1], c3[6][2]);
-  pushLine(c3[6][0], c3[6][1], c3[6][2], c3[4][0], c3[4][1], c3[4][2]);
-  pushLine(c3[0][0], c3[0][1], c3[0][2], c3[4][0], c3[4][1], c3[4][2]);
-  pushLine(c3[1][0], c3[1][1], c3[1][2], c3[5][0], c3[5][1], c3[5][2]);
-  pushLine(c3[2][0], c3[2][1], c3[2][2], c3[6][0], c3[6][1], c3[6][2]);
-  pushLine(c3[3][0], c3[3][1], c3[3][2], c3[7][0], c3[7][1], c3[7][2]);
+const c3 = [
+    [-0.321428, 0.108661415, 0.34293],
+    [-0.321428, 0.158622865, 0.344893],
+    [-0.321428, 0.2371425, -1.653565],
+    [-0.321428, 0.187181, -1.6555275],
+    [0.678575, 0.108661415, 0.34293],
+    [0.678575, 0.158622865, 0.344893],
+    [0.678575, 0.2371425, -1.653565],
+    [0.678575, 0.187181, -1.6555275]
+];
+
+// 左侧面 正确矩形连线（修复交叉扭曲）
+pushLine(c3[0][0], c3[0][1], c3[0][2], c3[1][0], c3[1][1], c3[1][2]);
+pushLine(c3[1][0], c3[1][1], c3[1][2], c3[2][0], c3[2][1], c3[2][2]);
+pushLine(c3[2][0], c3[2][1], c3[2][2], c3[3][0], c3[3][1], c3[3][2]);
+pushLine(c3[3][0], c3[3][1], c3[3][2], c3[0][0], c3[0][1], c3[0][2]);
+
+// 右侧面 原有连线本身正确，保留不变
+pushLine(c3[4][0], c3[4][1], c3[4][2], c3[5][0], c3[5][1], c3[5][2]);
+pushLine(c3[5][0], c3[5][1], c3[5][2], c3[6][0], c3[6][1], c3[6][2]);
+pushLine(c3[6][0], c3[6][1], c3[6][2], c3[7][0], c3[7][1], c3[7][2]);
+pushLine(c3[7][0], c3[7][1], c3[7][2], c3[4][0], c3[4][1], c3[4][2]);
+
+// 前后四条棱线 完整闭合长方体线框
+pushLine(c3[0][0], c3[0][1], c3[0][2], c3[4][0], c3[4][1], c3[4][2]);
+pushLine(c3[1][0], c3[1][1], c3[1][2], c3[5][0], c3[5][1], c3[5][2]);
+pushLine(c3[2][0], c3[2][1], c3[2][2], c3[6][0], c3[6][1], c3[6][2]);
+pushLine(c3[3][0], c3[3][1], c3[3][2], c3[7][0], c3[7][1], c3[7][2]);
   
   return new Float32Array(v);
 }
@@ -1383,6 +1390,7 @@ gl.enable(gl.CULL_FACE); gl.enable(gl.DEPTH_TEST); gl.depthFunc(gl.LEQUAL);
 const posLoc=gl.getAttribLocation(prg,"position"), colorLoc=gl.getAttribLocation(prg,"color"), uvLoc=gl.getAttribLocation(prg,"uv"), normalLoc=gl.getAttribLocation(prg,"normal");
 const texLoadedLoc=gl.getUniformLocation(prg,"texLoaded"), texLoc=gl.getUniformLocation(prg,"tex"), mvpMatLoc=gl.getUniformLocation(prg,"mvpMat"), mAdjMatLoc=gl.getUniformLocation(prg,"mAdjMat");
 const customColorLoc=gl.getUniformLocation(prg,"customColor"), useCustomColorLoc=gl.getUniformLocation(prg,"useCustomColor");
+const lightDirLoc=gl.getUniformLocation(prg,"lightDir");
 
 const createVAO=(data,stride,attrs)=>{
   const vao=gl.createVertexArray(); gl.bindVertexArray(vao);
@@ -1413,7 +1421,7 @@ function generateStairsWireframe() {
   const v = [];
   // 楼梯的边缘线 - 只绘制必要的边缘
   
-  // 底面
+ // 底面
   v.push(-.5, -.5, -.5, .5, -.5, -.5); // 前
   v.push(.5, -.5, -.5, .5, -.5, .5); // 右
   v.push(.5, -.5, .5, -.5, -.5, .5); // 后
@@ -1428,8 +1436,8 @@ function generateStairsWireframe() {
   // 左面
   v.push(-.5, -.5, -.5, -.5, 0, -.5); // 底前
   v.push(-.5, 0, -.5, -.5, .5, -.5); // 底后
-  v.push(-.5, .5, -.5, -.5, .5, .5); // 顶后
-  v.push(-.5, .5, .5, -.5, 0, .5); // 顶前
+  v.push(-.5, .5, -.5, -.5, .5, 0); // 顶后
+  v.push(-.5, .5, 0, -.5, 0, 0); // 顶前
   v.push(-.5, 0, .5, -.5, -.5, .5); // 底前
   
   // 右面下半
@@ -1440,7 +1448,7 @@ function generateStairsWireframe() {
   
   // 顶面（楼梯台阶水平面）
   v.push(-.5, 0, -.5, .5, 0, -.5); // 前
-  v.push(.5, 0, -.5, .5, 0, .5); // 右
+  v.push(.5, .5, -.5, .5, .5, 0); // 右
   v.push(.5, 0, .5, -.5, 0, .5); // 后
   v.push(-.5, 0, .5, -.5, 0, -.5); // 左
   
@@ -1458,7 +1466,7 @@ function generateStairsWireframe() {
   
   // 右面后半
   v.push(.5, 0, -.5, .5, .5, -.5); // 底
-  v.push(.5, .5, -.5, .5, .5, 0); // 顶
+  v.push(.5, .5, .5, .5, .5, 0); // 顶
   v.push(.5, .5, 0, .5, 0, 0); // 后
   
   // 连接楼梯台阶
@@ -1726,14 +1734,14 @@ function getModelMatrix(model) {
     // 先应用模型组的旋转（如果有）
     if (group) {
       const gd = group.varData;
-      mMat=mulMat(getRotZ(-gd.zrot.value),mMat);
+      mMat=mulMat(getRotZ(gd.zrot.value),mMat);
       mMat=mulMat(getRotX(gd.xrot.value),mMat);
-      mMat=mulMat(getRotY(-gd.yrot.value),mMat);
+      mMat=mulMat(getRotY(gd.yrot.value),mMat);
     }
     
-    mMat=mulMat(getRotZ(-d.zrot.value),mMat);
+    mMat=mulMat(getRotZ(d.zrot.value),mMat);
     mMat=mulMat(getRotX(d.xrot.value),mMat);
-    mMat=mulMat(getRotY(-d.yrot.value),mMat);
+    mMat=mulMat(getRotY(d.yrot.value),mMat);
     
     // pos: 变量值1 = 1米 = 1格, 直接使用（无偏移，中心在原点）
     // 应用模型组scale到方块xyzpos
@@ -1925,6 +1933,12 @@ function draw(){
   
   gl.clear(gl.COLOR_BUFFER_BIT|gl.DEPTH_BUFFER_BIT);
   
+  // 设置平行光照方向（固定方向）
+  gl.uniform3f(lightDirLoc, 0.5, 0.8, 1.0);
+  
+  // 更新坐标系罗盘
+  updateCoordinateCompass();
+  
   // 绘制网格
   gl.bindVertexArray(gridVao);
   gl.uniform1i(texLoadedLoc, 0);
@@ -1956,12 +1970,19 @@ function draw(){
     
     const texIdx = textures[model.texName] !== undefined ? textures[model.texName] : 0;
     const isLoaded = texLoaded[model.texName] || false;
-    const useTex = model.modelType === 'block' || model.modelType === 'banner';
+    const useTex = model.modelType === 'block' || model.modelType === 'banner' || model.modelType === 'stairs' || model.modelType === 'slab';
     gl.uniform1i(texLoadedLoc, useTex ? (isLoaded ? 1 : 0) : 0);
     gl.uniform1i(texLoc, texIdx);
     
     // 设置自定义颜色
     if (model.modelType === 'stairs' || model.modelType === 'slab') {
+      const color = model.customColor || '#ffffff';
+      const r = parseInt(color.slice(1, 3), 16) / 255;
+      const g = parseInt(color.slice(3, 5), 16) / 255;
+      const b = parseInt(color.slice(5, 7), 16) / 255;
+      gl.uniform3f(customColorLoc, r, g, b);
+      gl.uniform1i(useCustomColorLoc, 1);
+    } else if (model.modelType === 'block' && model.texName === 'custom_color') {
       const color = model.customColor || '#ffffff';
       const r = parseInt(color.slice(1, 3), 16) / 255;
       const g = parseInt(color.slice(3, 5), 16) / 255;
@@ -3234,6 +3255,7 @@ function loadTheme() {
     if (viewSelectionToggle) viewSelectionToggle.classList.toggle('active', viewSelectionEnabled);
   }
   
+  // 适配手机设置初始不再默认关闭
   const savedMobileAdapt = localStorage.getItem('mobileAdaptEnabled');
   if (savedMobileAdapt !== null) {
     mobileAdaptEnabled = savedMobileAdapt === 'true';
@@ -3245,22 +3267,16 @@ function loadTheme() {
     }
   }
   
-  const savedHorizontalUI = localStorage.getItem('horizontalUIEnabled');
-  if (savedHorizontalUI !== null) {
-    horizontalUIEnabled = savedHorizontalUI === 'true';
-    const horizontalUIToggle = document.getElementById('horizontalUIToggle');
-    const body = document.body;
-    const sidebar = document.getElementById('horizontalSidebar');
-    if (horizontalUIToggle) {
-      horizontalUIToggle.classList.toggle('active', horizontalUIEnabled);
-      body.classList.toggle('horizontal-ui', horizontalUIEnabled);
-      if (sidebar) sidebar.style.display = horizontalUIEnabled ? 'block' : 'none';
-      
-      // 如果是手机且已开启横版UI，尝试横屏显示
-      if (horizontalUIEnabled && isMobileDevice()) {
-        lockScreenOrientation('landscape');
-      }
-    }
+  horizontalUIEnabled = false;
+  const horizontalUIToggle = document.getElementById('horizontalUIToggle');
+  const sidebar = document.getElementById('horizontalSidebar');
+  if (horizontalUIToggle) {
+    horizontalUIToggle.classList.remove('active');
+    body.classList.remove('horizontal-ui');
+    if (sidebar) sidebar.style.display = 'none';
+    
+    // 关闭横版UI时，解锁屏幕方向
+    unlockScreenOrientation();
   }
   
   const savedStepSettings = localStorage.getItem('stepSettingsEnabled');
@@ -3296,10 +3312,103 @@ function toggleMobileAdapt() {
   
   localStorage.setItem('mobileAdaptEnabled', mobileAdaptEnabled);
   renderControlPage();
+  resize();
+  draw();
 }
 
 // ============ 横版UI开关 ============
 let horizontalUIEnabled = false;
+// 坐标系罗盘绘制函数
+function updateCoordinateCompass() {
+  const canvas = document.getElementById('compassCanvas');
+  if (!canvas) return;
+  
+  const ctx = canvas.getContext('2d');
+  const centerX = canvas.width / 2;
+  const centerY = canvas.height / 2;
+  const radius = Math.min(centerX, centerY) - 5;
+  
+  // 清除画布
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  
+  // 绘制背景圆
+  ctx.beginPath();
+  ctx.arc(centerX, centerY, radius, 0, 2 * Math.PI);
+  ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
+  ctx.fill();
+  ctx.strokeStyle = '#555555';
+  ctx.lineWidth = 2;
+  ctx.stroke();
+  
+  // 计算旋转后的坐标轴方向
+  const yawRad = viewYaw * Math.PI / 180;
+  const pitchRad = viewPitch * Math.PI / 180;
+  
+  // 定义坐标轴方向
+  const axes = [
+    { name: 'X', color: '#ff4444', dir: [1, 0, 0] },
+    { name: 'Y', color: '#44ff44', dir: [0, 1, 0] },
+    { name: 'Z', color: '#4444ff', dir: [0, 0, 1] }
+  ];
+  
+  // 旋转坐标轴
+  const rotatedAxes = axes.map(axis => {
+    const [x, y, z] = axis.dir;
+    
+    // 应用yaw旋转（修正方向）
+    const rotatedX = x * Math.cos(yawRad) - z * Math.sin(yawRad);
+    const rotatedZ = x * Math.sin(yawRad) + z * Math.cos(yawRad);
+    
+    // 应用pitch旋转
+    const rotatedY = y * Math.cos(pitchRad) - rotatedZ * Math.sin(pitchRad);
+    const finalZ = y * Math.sin(pitchRad) + rotatedZ * Math.cos(pitchRad);
+    
+    return { ...axis, dir: [rotatedX, rotatedY, finalZ] };
+  });
+  
+  // 按Z轴排序，处理遮挡（Z值大的在前面）
+  rotatedAxes.sort((a, b) => b.dir[2] - a.dir[2]);
+  
+  // 绘制坐标轴
+  rotatedAxes.forEach(axis => {
+    const [x, y, z] = axis.dir;
+    
+    // 绘制所有坐标轴（包括背面）
+    if (true) {
+      const endX = centerX + x * radius * 0.6;
+      const endY = centerY - y * radius * 0.6;
+      
+      ctx.beginPath();
+      ctx.moveTo(centerX, centerY);
+      ctx.lineTo(endX, endY);
+      ctx.strokeStyle = axis.color;
+      ctx.lineWidth = 3;
+      ctx.stroke();
+      
+      // 绘制箭头
+      const arrowSize = 6;
+      const angle = Math.atan2(y, x);
+      
+      ctx.beginPath();
+      ctx.moveTo(endX, endY);
+      ctx.lineTo(endX - arrowSize * Math.cos(angle - Math.PI / 6), endY + arrowSize * Math.sin(angle - Math.PI / 6));
+      ctx.lineTo(endX - arrowSize * Math.cos(angle + Math.PI / 6), endY + arrowSize * Math.sin(angle + Math.PI / 6));
+      ctx.closePath();
+      ctx.fillStyle = axis.color;
+      ctx.fill();
+      
+      // 绘制标签
+      ctx.font = 'bold 12px Arial';
+      ctx.fillStyle = axis.color;
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'middle';
+      const labelX = centerX + x * radius * 0.8;
+      const labelY = centerY - y * radius * 0.8;
+      ctx.fillText(axis.name, labelX, labelY);
+    }
+  });
+}
+
 function toggleHorizontalUI() {
   horizontalUIEnabled = !horizontalUIEnabled;
   const toggle = document.getElementById('horizontalUIToggle');
@@ -3336,7 +3445,8 @@ function toggleHorizontalUI() {
   }
   
   localStorage.setItem('horizontalUIEnabled', horizontalUIEnabled);
-  resizeCanvas();
+  resize();
+  draw();
 }
 
 // 检测是否是移动设备
@@ -3722,6 +3832,15 @@ document.addEventListener('DOMContentLoaded', () => {
   document.getElementById('horizontalUIToggle').addEventListener('click', toggleHorizontalUI);
   
   document.getElementById('stepSettingsToggle').addEventListener('click', toggleStepSettings);
+  
+  // 重置视图按钮事件
+  document.getElementById('resetViewBtn').addEventListener('click', () => {
+    viewYaw = -10;
+    viewPitch = 15;
+    viewScale = 2;
+    resize();
+    draw();
+  });
   
   // 步长设置输入框事件绑定
   document.getElementById('posStep').addEventListener('change', updateStepConfig);
